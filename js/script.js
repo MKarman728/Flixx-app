@@ -131,7 +131,7 @@ async function displayMovieDetails() {
 async function displayShowDetails() {
     const showId = window.location.search.split('=')[1];
     const show = await fetchAPIData(`tv/${showId}`);
-    console.log(show);
+    // console.log(show);
     //OverlayBackground Image
     displayBackgroundImage('tv', show.backdrop_path );
 
@@ -154,9 +154,7 @@ async function displayShowDetails() {
         ${show.vote_average.toFixed(1)} / 10
       </p>
       <p class="text-muted">First Air Date: ${show.first_air_date}</p>
-      <p>
-        ${show.overview}
-      </p>
+      <p>${show.overview ? `${show.overview}` : `No information available on this TV show.`}</p>
       <h5>Genres</h5>
       <ul class="list-group">
         ${show.genres.map((genre)=>`<li>${genre.name}</li>`).join('')}
@@ -176,7 +174,9 @@ async function displayShowDetails() {
     <h4>Production Companies</h4>
     <div class="list-group">${show.production_companies.map((company)=>`<span>${company.name} </span>`).join(', ')}</div>
   </div>`;
-
+  if(!show.overview){
+    console.log(div.querySelector('.details-top').style.justifyContent = 'center');
+  }
   document.querySelector('#show-details').appendChild(div);
 }
 
