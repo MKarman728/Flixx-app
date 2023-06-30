@@ -75,7 +75,7 @@ function hideSpinner(){
 async function displayMovieDetails() {
     const movieId = window.location.search.split('=')[1];
     const movie = await fetchAPIData(`movie/${movieId}`);
-
+    console.log(movie);
     //Overlay for background image
     displayBackgroundImage('movie', movie.backdrop_path)
 
@@ -105,7 +105,7 @@ async function displayMovieDetails() {
       </p>
       <h5>Genres</h5>
       <ul class="list-group">
-        ${movie.genres.map((genre)=>`<li>${genre.name}</li>`).join('')}
+        ${movie.genres.map((genre)=>`<span>${genre.name}</span>`).join(', ')}
       </ul>
       <a href="${movie.homepage}" target="_blank" class="btn">Visit Movie Homepage</a>
     </div>
@@ -113,8 +113,8 @@ async function displayMovieDetails() {
   <div class="details-bottom">
     <h2>Movie Info</h2>
     <ul>
-      <li><span class="text-secondary">Budget:</span> $${addCommasToNumber(movie.budget)}</li>
-      <li><span class="text-secondary">Revenue:</span> $${addCommasToNumber(movie.revenue)}</li>
+      <li><span class="text-secondary">Budget:</span> ${movie.budget ? `$${addCommasToNumber(movie.budget)}`:`N/A` }</li>
+      <li><span class="text-secondary">Revenue:</span> ${movie.revenue ? `$${addCommasToNumber(movie.revenue)}` : `N/A`}</li>
       <li><span class="text-secondary">Runtime:</span> ${movie.runtime} minutes</li>
       <li><span class="text-secondary">Status:</span> ${movie.status}</li>
     </ul>
