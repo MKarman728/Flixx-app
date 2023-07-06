@@ -6,6 +6,8 @@ This is a vanilla javascript project utilizing the tmdb.org API to generate a li
 
 The homepage lists the top 20 most popular movies based API calls to tmdb.org.
 
-![Alt text](image.png)
+![Alt text](./images/image.png)
 
 Project utilizes async functions to await fetch calls and generate the webpage.
+
+Project is hosted at: https://magnificent-kashata-eb1a90.netlify.app/
