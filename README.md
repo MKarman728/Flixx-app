@@ -6,7 +6,7 @@ This is a vanilla javascript project utilizing the tmdb.org API to generate a li
 
 The homepage lists the top 20 most popular movies based API calls to tmdb.org.
 
-![Alt text](./images/image.png)
+<img src="./images/image.png" alt ="Top 20">
 
 Project utilizes async functions to await fetch calls and generate the webpage.
 
