@@ -1,4 +1,4 @@
-<p style = "text-align: center"><font size = "15">Flixx App </font></p>
+<p style = "text-align: center"><font size = "20"><strong>Flixx App</strong> </font></p>
 
 This is a vanilla javascript project utilizing the tmdb.org API to generate a list of popular movies and TV shows as well as newly aired movies and shows.
 
