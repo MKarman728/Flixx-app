@@ -44,6 +44,7 @@ async function displayPopularMovies(){
 
 //Displays popular tv shows
 async function displayPopularShows(){
+  try {
     const { results } = await fetchAPIData('tv/popular');
     results.forEach(tv => {
         const div = document.createElement('div');
@@ -69,7 +70,10 @@ async function displayPopularShows(){
           </p>
         `
     document.querySelector('#popular-shows').appendChild(div);
-    })
+  })
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 //Display spinner when making call to API
@@ -164,7 +168,7 @@ async function displayShowDetails() {
         ${show.vote_average.toFixed(1)} / 10
       </p>
       <p class="text-muted">First Air Date: ${show.first_air_date}</p>
-      <p>${show.overview ? `${show.overview}` : `No information available on this TV show.`}</p>
+      <p>${show.overview ? `${show.overview}` : `No summary available on this TV show.`}</p>
       <h5>Genres</h5>
       <ul class="list-group">
         ${show.genres.map((genre)=>`<li>${genre.name}</li>`).join('')}
