@@ -439,7 +439,7 @@ function init(){
             displaySlider();
 
             break;
-        case '/shows.html':
+        case '/shows':
             displayPopularShows();
             displaySliderTV()
             break;
